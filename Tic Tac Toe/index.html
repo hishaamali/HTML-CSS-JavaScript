@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My HTML game: Tic Tac Toe</title>
+  <link rel = "stylesheet" href = "style.css">
+
+</head>
+<body onload = "beginGame();">
+  <h1>Multiplayer Tic Tac Toe </h1>
+  <div id = "message"> Test</div>
+  <table border = "1">
+    <tr>
+      <td class = "cells" id ="c1" onClick = "nextMove(this)"></td>
+      <td class = "cells" id ="c2" onClick = "nextMove(this)"></td>
+      <td class = "cells" id ="c3" onClick = "nextMove(this)"></td>
+    </tr>
+    <tr>
+      <td class = "cells" id ="c4" onClick = "nextMove(this)"></td>
+      <td class = "cells" id ="c5" onClick = "nextMove(this)"></td>
+      <td class = "cells" id ="c6" onClick = "nextMove(this)"></td>
+    </tr>    
+    <tr>
+      <td class = "cells" id ="c7" onClick = "nextMove(this)"></td>
+      <td class = "cells" id ="c8" onClick = "nextMove(this)"></td>
+      <td class = "cells" id ="c9" onClick = "nextMove(this)"></td>
+    </tr>
+  </table>
+  <a href="javascript: beginGame();"id = "restart">PLAY AGAIN</a>
+  <script src="script.js"></script>
+  </body>
+</hmtl>
