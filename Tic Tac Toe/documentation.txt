@@ -1,4 +1,0 @@
-//Hishaam Ali 
-//23527787
-Demo Consent
-My project is a multiplayer tic tac toe. I did change style.css and the html file for the game. 
