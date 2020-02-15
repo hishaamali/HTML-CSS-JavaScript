@@ -30,6 +30,9 @@ function changeTurn(){
     outputMessage("Player " + document.turn + " has won! Select Play again.");
     document.winner = document.turn;
   }
+  else if(checkTie()){
+    outputMessage("Tie Game! Select Play Again");
+  }
   else if (document.turn == "X"){
     document.turn = "O";
     outputMessage("Player " + document.turn + "'s turn.")
@@ -39,6 +42,7 @@ function changeTurn(){
     outputMessage("Player " + document.turn + "'s turn.")
   } 
 }
+
 
 function checkWinner(m){
   var result = false;
@@ -52,6 +56,22 @@ function checkWinner(m){
      checkRows(3,5,7,m)){
       result = true;
     }
+  return result;
+}
+
+function checkTie(){
+  var result = false;
+  if (checkGridTie(1,2,3,4,5,6,7,8,9)){
+      result = true;
+  }
+  return result;
+}
+
+function checkGridTie(a,b,c,d,e,f,g,h,i){
+  var result = false;
+  if(getCell(a) != "" && getCell(b) != "" && getCell(c) != "" && getCell(d) != "" && getCell(e) != "" && getCell(f) != "" && getCell(g) != "" && getCell(h) != "" && getCell(i) != "") {
+    result = true;
+  }
   return result;
 }
 
