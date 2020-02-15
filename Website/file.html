@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CS355 Home Page</title>
+  <meta name=”viewport” content=”width=device-width, initial-scale=1″>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+<nav>
+  <p><a href ="https://venus.cs.qc.cuny.edu/~alhi7787/cs355/">SARA</a></p>
+    <ul>
+      <li><a href="">Course    &#9660;</a>
+        <ul>
+          <li><a href="http://zybooks.com" target ="blank">Zybook</a></li>
+          <li><a href="https://tophat.com/" target ="blank">TopHat</a></li>
+          <li><a href="http://tinyurl.com/CSCI355-Fall2019" target="blank">Google Drive</a></li>
+          <li><a href="https://www.w3schools.com/js/" target="blank">W3 Schools</a></li>
+        </ul>
+      <li><a href="#">Search    &#9660;</a>
+        <ul>
+          <li><a href="file.html">From File</a></li>
+          <li><a href="google.html">Google Search API</a></li>
+          <li><a href="">Our Search Engine</a></li>
+        </ul>
+      <li><a href="#">Browser    &#9660;</a>
+        <ul>
+          <li><a href ="navigator.html">Navigator</a></li>
+          <li><a href ="window.html">Window</a></li>
+          <li><a href = "screen.html">Screen</a></li>
+          <li><a href = "location.html">Location</a></li>
+          <li><a href = "geolocation.html">GeoLocation</a></li>
+        </ul>
+      <li><a href="#">About    &#9660;</a>
+        <ul>
+          <li><a href ="developer.html">Developer</a></li>
+          <li><a href = "contact.html">Contact Us</a></li>
+        </ul>
+    </ul>
+</nav>
+
+<section>
+  <h1>Search from File</h1>
+</section>
+<div>
+  <h2>
+    <input type="file" id="selectFiles" value="Import" hidden = "hidden" />
+    <button type ="button" id="uploadbutton">Upload File</button>
+    <button id="import">Import File</button>
+    <p id="output"></p>
+    <script>
+      var i, x = "", link = "" , j, xmlDoc , y;
+      const realbutton = document.getElementById("selectFiles");
+      const custombutton = document.getElementById("uploadbutton");
+      custombutton.addEventListener("click", function() {
+        realbutton.click();
+      }); 
+      document.getElementById('import').onclick = function() {
+        var files = document.getElementById('selectFiles').files;
+        console.log(files);
+        if (files.length <= 0) {
+          return false;
+        }
+        var extension = selectFiles.value.split('.')[1];
+        if (extension == 'json'){
+          var fr = new FileReader();
+          fr.onload = function(e) { 
+            console.log(e);
+            var result = JSON.parse(e.target.result);
+            var formatted = JSON.stringify(result, null, 2);
+            for(i in result.Result){
+              x ="<p>" + result.Result[i].title + "<br>" + result.Result[i].url + "<br>" + result.Result[i].description + "</p>" + "<br/>";
+              document.getElementById("myCheck");
+              link += x.link(result.Result[i].url);
+            }
+            document.getElementById("output").innerHTML = link;
+          }
+        fr.readAsText(files.item(0));
+        }
+        else if (extension == 'xml'){
+          var fr = new FileReader();
+          fr.onload = function(e){
+            console.log(e);
+            parser = new DOMParser();
+            xmlDoc = parser.parseFromString(e.target.result,"text/xml");
+            for (i = 0; i < xmlDoc.getElementsByTagName("title").length; i++){
+              var checkb = document.createElement("input");
+              checkb.type = "checkbox";
+              x =  "<p>" + xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue + "<br>" + xmlDoc.getElementsByTagName("url")[i].childNodes[0].nodeValue + "<br>" + xmlDoc.getElementsByTagName("description")[i].childNodes[0].nodeValue + "</p>" + "<br/>" ;
+              link += x.link(xmlDoc.getElementsByTagName("url")[i].childNodes[0].nodeValue);
+            }
+            document.getElementById("output").innerHTML = link;
+          }
+        fr.readAsText(files.item(0));
+        }
+        else if(extension == 'csv') {
+          var fr = new FileReader();
+          fr.onload = function(e){
+            console.log(e);
+            var result = e.target.result.split('\n');
+            for (i = 0; i < result.length-1; i++){
+              var element = result[i].split(',');
+              x = "<p>" + element[0] +  "<br>" +  element[1] +  "<br>" +  element[2] + "</p>" + "<br/>";
+              link += x.link(element[i]);
+            }
+            document.getElementById("output").innerHTML = link;
+		      }
+        
+        }
+          fr.readAsText(files.item(0));
+      };
+  </script>
+  </h2>
+</div>
+
+</body>
+</html>
