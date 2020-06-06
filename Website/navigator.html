@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CS355 Home Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav>
+  <p><a href = "https://main355.hishaamali.repl.co"/><img src="Screenshot (2).png" style="width:160px;height: 85px;"></a></p>
+    <ul>
+      <li><a href="">COURSE     &#9662;</a>
+        <ul>
+          <li><a href="http://zybooks.com" target ="blank">ZYBOOK</a></li>
+          <li><a href="https://tophat.com/" target ="blank">TOPHAT</a></li>
+          <li><a href="http://tinyurl.com/CSCI355-Fall2019" target="blank">GOOGLE DRIVE</a></li>
+          <li><a href="https://www.w3schools.com/js/" target="blank">W3 SCHOOLS</a></li>
+        </ul>
+      <li><a href="#">SEARCH    &#9662;</a>
+        <ul>
+          <li><a href="file.html">FROM FILE</a></li>
+          <li><a href="google.html">GOOGLE SEARCH API</a></li>
+          <li><a href="">OUR SEARCH ENGINE</a></li>
+        </ul>
+      <li><a href="#">BROWSER    &#9662;</a>
+        <ul>
+          <li><a href ="navigator.html">NAVIGATOR</a></li>
+          <li><a href ="window.html">WINDOW</a></li>
+          <li><a href = "screen.html">SCREEN</a></li>
+          <li><a href = "location.html">LOCATION</a></li>
+          <li><a href = "geolocation.html">GEOLOCATION</a></li>
+        </ul>
+      <li><a href="#">ABOUT    &#9662;</a>
+        <ul>
+          <li><a href ="developer.html">DEVELOPER</a></li>
+          <li><a href = "contact.html">CONTACT</a></li>
+        </ul>
+    </ul>
+    
+</nav>
+
+  <section>
+   <h1>Browser Navigator Information<h1>
+  </section>
+  <section>
+    <h2>Application Name</h2>
+    <p id="appName"></p>
+    <script>document.getElementById("appName").innerHTML = navigator.appName;</script>
+  </section>
+  <section>
+    <h3>User Agent</h3>
+    <p id="userAgent"></p>
+    <script>document.getElementById("userAgent").innerHTML = navigator.userAgent;</script>
+  </section>
+  <section>
+    <h4>Platform</h4>
+    <p id="platform"></p>
+    <script>document.getElementById("platform").innerHTML = navigator.platform;</script>
+  </section>
+  <section>
+    <h5>Language</h5>
+    <p id="language"></p>
+    <script>document.getElementById("language").innerHTML = navigator.language;</script>
+  </section>
+  <section>
+    <h6>Version</h6>
+    <p id="version"></p>
+    <script>document.getElementById("version").innerHTML = navigator.appVersion;</script>
+  </section>
+
+</body>
+</html>
